@@ -3,7 +3,7 @@ package smallexamples;
 import org.junit.Test;
 
 /**
- * Created by verhasp on 2016. 09. 17..
+ * Created by Erion Nezha on 2016. 09. 17..
  */
 public class ThreadTest {
 
