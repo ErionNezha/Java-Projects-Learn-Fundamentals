@@ -1,0 +1,32 @@
+PROVENIENCA DHE LICENCA / PROVENANCE & LICENSE
+===============================================
+
+Kodi burim në dosjen `original/` është mbledhur nga burime publike
+(postime në kanalin Telegram "Coding Projects" me kode të shpërndara lirisht —
+kodi shoqërues i librit "Java Projects — Learn the Fundamentals", ed. 2).
+Autori origjinal dhe licenca origjinale e secilit projekt NUK janë verifikuar.
+
+- Nuk pretendohet autorësi ekskluzive mbi kodin e palëve të treta.
+- File-t ebook (PDF/EPUB/MOBI) NUK janë përfshirë — vetëm kodi burim.
+- Nëse je autori origjinal i ndonjë projekti këtu dhe dëshiron
+  attribution të saktë, korrigjim licence, ose heqjen e tij,
+  të lutem kontakto.
+
+Faqja demonstruese (`index.html`) — live view + paneli i kodit —
+dhe përshtatja/pastrimi për web u ndërtuan nga Erion Nezha, 2026.
+
+---
+
+The source code under `original/` was collected from public sources
+(Telegram channel "Coding Projects" sharing code freely — companion code
+of the book "Java Projects — Learn the Fundamentals", 2nd ed.).
+The original author and original license of each project have NOT been verified.
+
+- No exclusive authorship is claimed over third-party code.
+- Ebook files (PDF/EPUB/MOBI) are NOT included — source code only.
+- If you are the original author of any project here and want
+  correct attribution, license correction, or its removal,
+  please reach out.
+
+The showcase page (`index.html`) — live view + code panel —
+and the web adaptation were built by Erion Nezha, 2026.
