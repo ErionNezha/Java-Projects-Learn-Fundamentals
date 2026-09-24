@@ -1,0 +1,93 @@
+<!-- Created by Erion Nezha — © 2026 All rights reserved -->
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Projects — Learn Fundamentals (Demo)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e14;color:#e6e6e6;font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh}
+header{background:linear-gradient(135deg,#0d1b2a,#1b263b);padding:26px 20px;text-align:center;border-bottom:2px solid #00d4ff33}
+header h1{font-size:1.6rem;color:#fff}
+header p{color:#9fb3c8;margin-top:8px;font-size:.92rem;max-width:720px;margin-left:auto;margin-right:auto;line-height:1.55}
+main{max-width:1100px;margin:0 auto;padding:22px 16px}
+h2{color:#7fdbff;margin:26px 0 12px;font-size:1.15rem}
+.chapters{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.ch{background:#0d1420;border:1px solid #ffffff14;border-radius:10px;padding:14px}
+.ch h3{color:#ffd75c;font-size:.95rem;margin-bottom:6px}
+.ch p{color:#9fb3c8;font-size:.83rem;line-height:1.5}
+.ch .n{color:#00d4ff;font-weight:700}
+.viz{background:#0d1420;border:1px solid #ffffff14;border-radius:10px;padding:18px;margin-top:8px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+button{background:#1b263b;color:#cfd8e3;border:1px solid #ffffff22;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:.88rem;transition:.2s}
+button:hover:not(:disabled){background:#00d4ff;color:#04121a;border-color:#00d4ff;font-weight:600}
+button:disabled{opacity:.4;cursor:default}
+select,input[type=range]{background:#1b263b;color:#cfd8e3;border:1px solid #ffffff22;border-radius:8px;padding:8px}
+label{font-size:.85rem;color:#9fb3c8}
+canvas{width:100%;height:320px;background:#080b10;border:1px solid #ffffff10;border-radius:8px;display:block}
+.stats{display:flex;gap:18px;margin-top:12px;font-size:.85rem;color:#9fb3c8;flex-wrap:wrap}
+.stats b{color:#ffd75c}
+.note{background:#00d4ff12;border:1px solid #00d4ff44;border-radius:8px;padding:12px 16px;margin-top:16px;font-size:.85rem;color:#9fb3c8;line-height:1.6}
+code{background:#ffffff10;padding:2px 6px;border-radius:4px;font-size:.82em;color:#ffd75c}
+footer{text-align:center;padding:18px;color:#5c6b7f;font-size:.85rem;border-top:1px solid #ffffff10;margin-top:24px}
+footer strong{color:#9fb3c8}
+</style>
+</head>
+<body>
+<header>
+<h1>☕ Java Projects — Learn the Fundamentals</h1>
+<p>Kodi shoqërues i librit me 9 kapituj projektesh Java (Ch 2–10): nga HelloWorld me Ant/Maven, te algoritmet e sortimit, Gradle, shërbimet web dhe Java 8+. Më poshtë: indeksi i kapitujve + një vizualizues ndërveprues i algoritmeve të <strong>Kapitullit 3</strong> (Bubble Sort &amp; Quick Sort).</p>
+</header>
+<main>
+<h2>📚 Indeksi i kapitujve</h2>
+<div class="chapters">
+<div class="ch"><h3><span class="n">Ch 2</span> — Fillimi</h3><p>HelloWorld me Ant dhe Maven; renditja e stringjeve (<code>stringsort</code>).</p></div>
+<div class="ch"><h3><span class="n">Ch 3</span> — Sortimi</h3><p><code>genericsort</code>: Bubble Sort (thjeshtë &amp; generic), Quick Sort paralel me Fork/Join (<code>FJQuickSort</code>) + teste.</p></div>
+<div class="ch"><h3><span class="n">Ch 4</span> — Gradle</h3><p>Projekt Gradle me burim në <code>src/</code>, <code>build.gradle</code> dhe wrapper.</p></div>
+<div class="ch"><h3><span class="n">Ch 5</span> — Gradle+</h3><p>Zgjerime të projektit Gradle të kapitullit 4.</p></div>
+<div class="ch"><h3><span class="n">Ch 6</span> — HTTP</h3><p>Klient HTTP në Java (<code>ch06_http</code>) + projekt Gradle.</p></div>
+<div class="ch"><h3><span class="n">Ch 7</span> — Shërbime Web</h3><p><code>productinformation</code> + projekt testimi SOAP UI për katalog/inventar.</p></div>
+<div class="ch"><h3><span class="n">Ch 8</span> — Porosi</h3><p><code>bulkorders</code> — logjikë e porosive me shumicë.</p></div>
+<div class="ch"><h3><span class="n">Ch 9</span> — Gradle</h3><p>Projekt i ri Gradle (<code>ch09</code>) me strukturë <code>src/</code>.</p></div>
+<div class="ch"><h3><span class="n">Ch 10</span> — Java 8</h3><p><code>advanced-java-part-15-java8</code>, <code>aptools</code> dhe skripte ndihmëse.</p></div>
+</div>
+
+<h2>📊 Vizualizuesi i sortimit — Kapitulli 3 (<code>genericsort</code>)</h2>
+<div class="viz">
+<div class="controls">
+<label>Algoritmi:
+<select id="algo">
+<option value="bubble">Bubble Sort (ch03/bubble)</option>
+<option value="quick">Quick Sort (ch03/qsort — FJQuickSort)</option>
+</select></label>
+<label>Elemente: <input type="range" id="size" min="10" max="120" value="50"></label>
+<label>Shpejtësia: <input type="range" id="speed" min="1" max="100" value="60"></label>
+<button id="shuffle">🔀 Përziej</button>
+<button id="run">▶️ Ekzekuto</button>
+</div>
+<canvas id="cv" width="1000" height="320"></canvas>
+<div class="stats"><span>Krahasime: <b id="cmp">0</b></span><span>Ndërrime: <b id="swp">0</b></span><span>Statusi: <b id="st">gati</b></span></div>
+<div class="note">💡 Ky vizualizues është port web i logjikës së <code>BubbleSort.java</code> dhe <code>FJQuickSort.java</code> nga <code>original/Chapter03/genericsort/</code>. Kodi origjinal Java i paprekur gjendet te tab-i <strong>Kodi Burim</strong>.</div>
+</div>
+</main>
+<footer>Krijuar nga <strong>Erion Nezha</strong> — © 2026</footer>
+<script>
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+let arr=[],cmp=0,swp=0,running=false,ops=[];
+const $=id=>document.getElementById(id);
+function newArr(){const n=+$('size').value;arr=Array.from({length:n},(_,i)=>i+1);for(let i=n-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}cmp=0;swp=0;draw(-1,-1);}
+function draw(hi,hj){ctx.clearRect(0,0,cv.width,cv.height);const n=arr.length,bw=cv.width/n;for(let i=0;i<n;i++){const h=arr[i]/n*300;ctx.fillStyle=i===hi||i===hj?'#ffd75c':(i<hj?'#00d4ff':'#1b6f8f');ctx.fillRect(i*bw+1,cv.height-h,bw-2,h);}}
+function bubbleOps(a){const o=[];const x=a.slice();for(let i=0;i<x.length-1;i++)for(let j=0;j<x.length-1-i;j++){o.push({t:'c',i:j,j:j+1});if(x[j]>x[j+1]){o.push({t:'s',i:j,j:j+1});[x[j],x[j+1]]=[x[j+1],x[j]];}}return o;}
+function quickOps(a){const o=[];const x=a.slice();(function q(l,r){if(l>=r)return;const p=x[r];let i=l;for(let j=l;j<r;j++){o.push({t:'c',i:j,j:r});if(x[j]<p){if(i!==j)o.push({t:'s',i:i,j:j});[x[i],x[j]]=[x[j],x[i]];i++;}}if(i!==r)o.push({t:'s',i:i,j:r});[x[i],x[r]]=[x[r],x[i]];q(l,i-1);q(i+1,r);})(0,x.length-1);return o;}
+async function run(){if(running)return;running=true;$('run').disabled=true;$('shuffle').disabled=true;cmp=0;swp=0;$('st').textContent='duke ekzekutuar…';
+const algo=$('algo').value;ops=algo==='bubble'?bubbleOps(arr):quickOps(arr);
+const delay=()=>new Promise(r=>setTimeout(r,Math.max(1,105-+$('speed').value)));
+for(const op of ops){if(op.t==='c'){cmp++;draw(op.i,op.j);}else{swp++;[arr[op.i],arr[op.j]]=[arr[op.j],arr[op.i]];draw(op.i,op.j);}$('cmp').textContent=cmp;$('swp').textContent=swp;await delay();}
+draw(-1,-1);$('st').textContent='përfundoi ✔';running=false;$('run').disabled=false;$('shuffle').disabled=false;}
+$('shuffle').onclick=()=>{if(!running){newArr();$('st').textContent='gati';}};
+$('run').onclick=run;$('size').onchange=()=>{if(!running)newArr();};
+newArr();
+</script>
+</body>
+</html>
